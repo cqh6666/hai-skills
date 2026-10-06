@@ -1,0 +1,4 @@
+interface:
+  display_name: "微信公众号文章搜索与抓取"
+  short_description: "搜索微信公众号文章、读取全文，并将正文、配图和来源信息保存到本地"
+  default_prompt: "使用 $wechat-article-retriever 搜索微信公众号文章，列出标题、公众号、时间、摘要和原文链接。"

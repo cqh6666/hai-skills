@@ -1,0 +1,38 @@
+name: WeChat article retriever
+
+on:
+  push:
+    paths:
+      - 'wechat-article-retriever/**'
+      - '.github/workflows/wechat-article-retriever.yml'
+  pull_request:
+    paths:
+      - 'wechat-article-retriever/**'
+      - '.github/workflows/wechat-article-retriever.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: wechat-article-retriever
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: wechat-article-retriever/package-lock.json
+      - run: npm ci --ignore-scripts
+      - run: npm test
+      - run: npm run doctor
+      - run: npm run check:browser

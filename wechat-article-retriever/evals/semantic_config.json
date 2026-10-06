@@ -1,0 +1,51 @@
+{
+  "positive_concepts": {
+    "article": {
+      "weight": 0.55,
+      "phrases": [
+        "微信公众号文章",
+        "公众号文章",
+        "WeChat Official Account"
+      ]
+    },
+    "action": {
+      "weight": 0.45,
+      "phrases": [
+        "搜索",
+        "检索",
+        "找",
+        "Search",
+        "读取",
+        "下载",
+        "抓取",
+        "保存",
+        "read",
+        "download"
+      ]
+    }
+  },
+  "negative_concepts": {
+    "other_wechat": {
+      "weight": 1.0,
+      "exclusive": true,
+      "phrases": [
+        "聊天记录",
+        "群聊",
+        "小程序",
+        "企业微信"
+      ]
+    },
+    "explanation": {
+      "weight": 1.0,
+      "exclusive": true,
+      "phrases": [
+        "是什么",
+        "工作机制"
+      ]
+    }
+  },
+  "fallback_positive_concepts": [
+    "article",
+    "action"
+  ]
+}
